@@ -1,0 +1,158 @@
+{
+  "kind": "collectionType",
+  "collectionName": "destinations",
+  "info": {
+    "singularName": "destination",
+    "pluralName": "destinations",
+    "displayName": "Destination",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "displayImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "cityOrigin": {
+      "type": "string"
+    },
+    "cityWhen": {
+      "type": "string"
+    },
+    "economTitle": {
+      "type": "string"
+    },
+    "economCars": {
+      "type": "string"
+    },
+    "economPhoto": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "economDescription": {
+      "type": "text"
+    },
+    "standartTitle": {
+      "type": "string"
+    },
+    "economPrice": {
+      "type": "integer"
+    },
+    "standartPhoto": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "standartCars": {
+      "type": "string"
+    },
+    "standartPrice": {
+      "type": "integer"
+    },
+    "standartDescription": {
+      "type": "text"
+    },
+    "comfortTitle": {
+      "type": "string"
+    },
+    "comfortPhoto": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "comfortCars": {
+      "type": "string"
+    },
+    "comfortDescription": {
+      "type": "text"
+    },
+    "comfortPrice": {
+      "type": "integer"
+    },
+    "businessTitle": {
+      "type": "string"
+    },
+    "businessPhoto": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "businessCars": {
+      "type": "string"
+    },
+    "businessPrice": {
+      "type": "integer"
+    },
+    "businessDescription": {
+      "type": "text"
+    },
+    "minivenTitle": {
+      "type": "string"
+    },
+    "minivenPhoto": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "minivenCars": {
+      "type": "string"
+    },
+    "minivenPrice": {
+      "type": "integer"
+    },
+    "minivenDescription": {
+      "type": "text"
+    },
+    "textTitle": {
+      "type": "string"
+    },
+    "textDescription": {
+      "type": "text"
+    }
+  }
+}
