@@ -1,11 +1,9 @@
 import SectionSliderNewCategories from "@/components/SectionSliderNewCategories";
 import React from "react";
 import SectionSubscribe2 from "@/components/SectionSubscribe2";
-import SectionOurFeatures from "@/components/SectionOurFeatures";
 import SectionHowItWork from "@/components/SectionHowItWork";
 import BackgroundSection from "@/components/BackgroundSection";
 import { TaxonomyType } from "@/data/types";
-import SectionGridAuthorBox from "@/components/SectionGridAuthorBox";
 //
 import logo1 from "@/images/logos/nomal/1.png";
 import logo1Dark from "@/images/logos/dark/1.png";
@@ -28,7 +26,6 @@ import HIW3img from "@/images/HIW2-3.png";
 import HIW1imgDark from "@/images/HIW2-1-dark.png";
 import HIW2imgDark from "@/images/HIW2-2-dark.png";
 import HIW3imgDark from "@/images/HIW2-3-dark.png";
-import rightImgPng from "@/images/our-features-2.png";
 
 import SectionGridFeatureProperty from "../SectionGridFeatureProperty";
 import SectionDowloadApp from "../SectionDowloadApp";
@@ -162,7 +159,6 @@ function PageHome2() {
           <SectionGridFeatureProperty />
         </div>
 
-        <SectionOurFeatures type="type2" rightImg={rightImgPng} />
 
         <SectionDowloadApp />
 
@@ -176,7 +172,6 @@ function PageHome2() {
 
         <div className="relative py-16">
           <BackgroundSection className="bg-neutral-100 dark:bg-black dark:bg-opacity-20 " />
-          <SectionGridAuthorBox boxCard="box2" />
         </div>
 
         <SectionSliderNewCategories
