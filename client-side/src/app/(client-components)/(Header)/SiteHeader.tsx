@@ -26,7 +26,6 @@ let OPTIONS = {
 };
 let OBSERVER: IntersectionObserver | null = null;
 const PAGES_HIDE_HEADER_BORDER: PathName[] = [
-  "/home-3",
   "/listing-car-detail",
   "/listing-experiences-detail",
   "/listing-stay-detail",
@@ -39,8 +38,6 @@ const SiteHeader = () => {
 
   let [homePages] = useState<HomePageItem[]>([
     { name: "Travel", slug: "/" },
-    { name: "Real Estate", slug: "/home-2" },
-    { name: "Booking", slug: "/home-3" },
   ]);
   const [headerSelected, setHeaderSelected] = useState<SiteHeaders>("Header 2");
 
