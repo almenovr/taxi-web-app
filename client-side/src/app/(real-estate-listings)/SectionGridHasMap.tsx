@@ -9,7 +9,6 @@ import Checkbox from "@/shared/Checkbox";
 import Pagination from "@/shared/Pagination";
 import TabFilters from "./TabFilters";
 import Heading2 from "@/shared/Heading2";
-import PropertyCardH from "@/components/PropertyCardH";
 
 const DEMO_EXPERIENCES = DEMO_STAY_LISTINGS.filter((_, i) => i < 12);
 
@@ -45,7 +44,6 @@ const SectionGridHasMap: FC<SectionGridHasMapProps> = () => {
                 onMouseEnter={() => setCurrentHoverID((_) => item.id)}
                 onMouseLeave={() => setCurrentHoverID((_) => -1)}
               >
-                <PropertyCardH data={item} />
               </div>
             ))}
           </div>
