@@ -6,9 +6,7 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import ButtonSubmit from "./ButtonSubmit";
 import { useTimeoutFn } from "react-use";
-import StaySearchForm from "./(stay-search-form)/StaySearchForm";
 import CarsSearchForm from "./(car-search-form)/CarsSearchForm";
-import FlightSearchForm from "./(flight-search-form)/FlightSearchForm";
 
 const HeroSearchForm2Mobile = () => {
   const [showModal, setShowModal] = useState(false);
@@ -34,10 +32,10 @@ const HeroSearchForm2Mobile = () => {
         <MagnifyingGlassIcon className="flex-shrink-0 w-5 h-5" />
 
         <div className="ml-3 flex-1 text-left overflow-hidden">
-          <span className="block font-medium text-sm">Where to?</span>
+          <span className="block font-medium text-sm">Поиск направления</span>
           <span className="block mt-0.5 text-xs font-light text-neutral-500 dark:text-neutral-400 ">
             <span className="line-clamp-1">
-              Anywhere • Any week • Add guests
+              Откуда • Куда
             </span>
           </span>
         </div>
@@ -86,51 +84,11 @@ const HeroSearchForm2Mobile = () => {
                           <XMarkIcon className="w-5 h-5 text-black dark:text-white" />
                         </button>
                       </div>
-
-                      <Tab.List className="pt-12 flex w-full justify-center font-semibold text-sm sm:text-base text-neutral-500 dark:text-neutral-400 space-x-6 sm:space-x-8">
-                        {["Stay", "Experiences", "Cars", "Flights"].map(
-                          (item, index) => (
-                            <Tab key={index} as={Fragment}>
-                              {({ selected }) => (
-                                <div className="relative focus:outline-none focus-visible:ring-0 outline-none select-none">
-                                  <div
-                                    className={`${
-                                      selected
-                                        ? "text-black dark:text-white"
-                                        : ""
-                                    }  `}
-                                  >
-                                    {item}
-                                  </div>
-                                  {selected && (
-                                    <span className="absolute inset-x-0 top-full border-b-2 border-black dark:border-white"></span>
-                                  )}
-                                </div>
-                              )}
-                            </Tab>
-                          )
-                        )}
-                      </Tab.List>
                       <div className="flex-1 pt-3 px-1.5 sm:px-4 flex overflow-hidden">
                         <Tab.Panels className="flex-1 overflow-y-auto hiddenScrollbar py-4">
                           <Tab.Panel>
                             <div className="transition-opacity animate-[myblur_0.4s_ease-in-out]">
-                              <StaySearchForm />
-                            </div>
-                          </Tab.Panel>
-                          <Tab.Panel>
-                            <div className="transition-opacity animate-[myblur_0.4s_ease-in-out]">
-                              <StaySearchForm />
-                            </div>
-                          </Tab.Panel>
-                          <Tab.Panel>
-                            <div className="transition-opacity animate-[myblur_0.4s_ease-in-out]">
                               <CarsSearchForm />
-                            </div>
-                          </Tab.Panel>
-                          <Tab.Panel>
-                            <div className="transition-opacity animate-[myblur_0.4s_ease-in-out]">
-                              <FlightSearchForm />
                             </div>
                           </Tab.Panel>
                         </Tab.Panels>
@@ -144,7 +102,7 @@ const HeroSearchForm2Mobile = () => {
                             resetIsShowingDialog();
                           }}
                         >
-                          Clear all
+                          Очистить
                         </button>
                         <ButtonSubmit
                           onClick={() => {

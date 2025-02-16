@@ -514,55 +514,24 @@ export interface ApiDestinationDestination extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    businessCars: Schema.Attribute.String;
-    businessDescription: Schema.Attribute.Text;
-    businessPhoto: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
-    businessPrice: Schema.Attribute.Integer;
-    businessTitle: Schema.Attribute.String;
+    cars: Schema.Attribute.Component<'shared.car-block', true>;
     cityOrigin: Schema.Attribute.String;
     cityWhen: Schema.Attribute.String;
-    comfortCars: Schema.Attribute.String;
-    comfortDescription: Schema.Attribute.Text;
-    comfortPhoto: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
-    comfortPrice: Schema.Attribute.Integer;
-    comfortTitle: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
     displayImage: Schema.Attribute.Media<'images'>;
-    economCars: Schema.Attribute.String;
-    economDescription: Schema.Attribute.Text;
-    economPhoto: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
-    economPrice: Schema.Attribute.Integer;
-    economTitle: Schema.Attribute.String;
+    faqs: Schema.Attribute.Component<'shared.faqs', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::destination.destination'
     > &
       Schema.Attribute.Private;
-    minivenCars: Schema.Attribute.String;
-    minivenDescription: Schema.Attribute.Text;
-    minivenPhoto: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
-    minivenPrice: Schema.Attribute.Integer;
-    minivenTitle: Schema.Attribute.String;
+    mapLink: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'>;
-    standartCars: Schema.Attribute.String;
-    standartDescription: Schema.Attribute.Text;
-    standartPhoto: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
-    standartPrice: Schema.Attribute.Integer;
-    standartTitle: Schema.Attribute.String;
     textDescription: Schema.Attribute.Text;
     textTitle: Schema.Attribute.String;
     title: Schema.Attribute.String;

@@ -11,7 +11,7 @@ export interface ListingCarDetailPageProps {
 }
 
 async function getData(slug: string) {
-    const response = await fetch(`http://localhost:1337/api/destinations?filters[slug][$eq]=${slug}` + "&populate=*");
+    const response = await fetch(`http://localhost:1337/api/destinations?filters[slug][$eq]=${slug}` + "&populate[cars][populate]=*&populate[faqs][populate]=*");
     return await response.json();
 }
 
@@ -32,6 +32,7 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
       fetchData();
     }, []);
   const data = (response as { data: any })?.data[0];
+  const cars = data?.cars;
 
 
 
@@ -47,7 +48,16 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
             <span className="ml-1">{data?.cityWhen}</span>
           </span>
         </div>
-        <div className="w-full border-b border-neutral-100 dark:border-neutral-700" />
+          <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
+
+          {/* CONTENT */}
+          <div className="text-neutral-6000 dark:text-neutral-300">
+
+              <p>
+                  {data?.description}
+              </p>
+          </div>
+          <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
 
       </div>
     );
@@ -107,13 +117,50 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
     );
   };
 
-  const renderSidebarPrice = () => {
+    const renderSection9 = (faqs: any[]) => {
+        return (
+            <div className="listingSection__wrap">
+                {/* HEADING */}
+                <h4 className="text-2xl font-semibold">Часто задаваемые вопросы (ЧАВО/FAQ):</h4>
+                <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
+
+                {/* CONTENT */}
+                <div>
+                    {faqs?.map((faq: any) => (
+                        <div key={faq.id}>
+                            <p className="text-lg font-semibold" style={{paddingTop: "1rem"}}>{faq.faqTitle}</p>
+                            <span className="block mt-3 text-neutral-500 dark:text-neutral-400">
+                                {faq.faqDescription}
+                            </span>
+                        </div>
+                    ))}
+                </div>
+                <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
+
+            </div>
+        );
+    };
+
+    const renderSection10 = (link: string) => {
+        return (
+            <div className="listingSection__wrap">
+                {/* HEADING */}
+                <iframe src={link} width="100%" height="600"></iframe>
+                <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
+
+            </div>
+        );
+    };
+
+
+
+  const renderSidebarPrice = (price: number) => {
     return (
       <div className="listingSectionSidebar__wrap shadow-xl">
         {/* PRICE */}
         <div className="flex justify-between">
           <span className="text-3xl font-semibold">
-            {`от ${data?.economPrice} руб.`}
+            {`от ${price} руб.`}
           </span>
         </div>
 
@@ -178,59 +225,28 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
         <div className="w-full lg:w-3/5 xl:w-2/3 space-y-8 lg:pr-10 lg:space-y-10">
           {renderSection1()}
           <div className="block lg:hidden">{renderSidebarDetail()}</div>
-            {renderSection2(
-                data?.economTitle,
-                data?.economPhoto?.url,
-                data?.economCars,
-                data?.economPrice,
-                data?.economDescription,
-                data?.cityOrigin,
-                data?.cityWhen,
-            )}
-            {renderSection2(
-                data?.standartTitle,
-                data?.standartPhoto?.url,
-                data?.standartCars,
-                data?.standartPrice,
-                data?.standartDescription,
-                data?.cityOrigin,
-                data?.cityWhen,
-            )}
-            {renderSection2(
-                data?.comfortTitle,
-                data?.comfortPhoto?.url,
-                data?.comfortCars,
-                data?.comfortPrice,
-                data?.comfortDescription,
-                data?.cityOrigin,
-                data?.cityWhen,
-            )}
-            {renderSection2(
-                data?.businessTitle,
-                data?.businessPhoto?.url,
-                data?.businessCars,
-                data?.businessPrice,
-                data?.businessDescription,
-                data?.cityOrigin,
-                data?.cityWhen,
-            )}
-            {renderSection2(
-                data?.minivenTitle,
-                data?.minivenPhoto?.url,
-                data?.minivenCars,
-                data?.minivenPrice,
-                data?.minivenDescription,
-                data?.cityOrigin,
-                data?.cityWhen,
-            )}
+            {cars?.map((car: { className: string, carImg: { url: string }, listCars: string, price: number, description: string }) => (
+                renderSection2(
+                    car.className,
+                    car.carImg.url,
+                    car.listCars,
+                    car.price,
+                    car.description,
+                    data?.cityOrigin,
+                    data?.cityWhen,
+                )
+            ))}
+
           {renderSection8(data?.textTitle, data?.textDescription)}
+          {data?.faqs.length ? renderSection9(data?.faqs) : ""}
+            {data?.mapLink ? renderSection10(data?.mapLink): ""}
         </div>
 
         {/* SIDEBAR */}
         <div className="block flex-grow mt-14 lg:mt-0">
           {renderSidebarDetail()}
           <div className="hidden lg:block mt-10 sticky top-28">
-            {renderSidebarPrice()}
+            {renderSidebarPrice(cars ? cars[0]?.price : 0)}
           </div>
         </div>
       </main>

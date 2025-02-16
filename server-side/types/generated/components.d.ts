@@ -1,11 +1,36 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedCarBlock extends Struct.ComponentSchema {
+  collectionName: 'components_shared_car_blocks';
+  info: {
+    displayName: 'Car block';
+  };
+  attributes: {
+    carImg: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    className: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    listCars: Schema.Attribute.String;
+    price: Schema.Attribute.Integer;
+  };
+}
+
 export interface SharedDefaultSeo extends Struct.ComponentSchema {
   collectionName: 'components_shared_default_seos';
   info: {
     displayName: 'defaultSeo';
   };
   attributes: {};
+}
+
+export interface SharedFaqs extends Struct.ComponentSchema {
+  collectionName: 'components_shared_faqs';
+  info: {
+    displayName: 'faqs';
+  };
+  attributes: {
+    faqDescription: Schema.Attribute.Text;
+    faqTitle: Schema.Attribute.String;
+  };
 }
 
 export interface SharedMedia extends Struct.ComponentSchema {
@@ -73,7 +98,9 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.car-block': SharedCarBlock;
       'shared.default-seo': SharedDefaultSeo;
+      'shared.faqs': SharedFaqs;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

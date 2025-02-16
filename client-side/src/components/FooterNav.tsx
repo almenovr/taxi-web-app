@@ -1,10 +1,5 @@
 "use client";
 
-import {
-  HeartIcon,
-  MagnifyingGlassIcon,
-  UserCircleIcon,
-} from "@heroicons/react/24/outline";
 import React, { useEffect, useRef } from "react";
 import { PathName } from "@/routers/types";
 import MenuBar from "@/shared/MenuBar";
@@ -25,22 +20,7 @@ interface NavItem {
 
 const NAV: NavItem[] = [
   {
-    name: "Explore",
-    link: "/",
-    icon: MagnifyingGlassIcon,
-  },
-  {
-    name: "Wishlists",
-    link: "/account-savelists",
-    icon: HeartIcon,
-  },
-  {
-    name: "Log in",
-    link: "/account",
-    icon: UserCircleIcon,
-  },
-  {
-    name: "Menu",
+    name: "Меню",
     icon: MenuBar,
   },
 ];
