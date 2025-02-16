@@ -11,7 +11,7 @@ export interface ListingCarDetailPageProps {
 }
 
 async function getData(slug: string) {
-    const response = await fetch(`http://localhost:1337/api/destinations?filters[slug][$eq]=${slug}` + "&populate[cars][populate]=*&populate[faqs][populate]=*");
+    const response = await fetch(`https://natoladrad.beget.app/api/destinations?filters[slug][$eq]=${slug}` + "&populate[cars][populate]=*&populate[faqs][populate]=*");
     return await response.json();
 }
 
@@ -79,7 +79,7 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
         <div className="listingSection__wrap">
             <h2 className="text-2xl font-semibold">{classAuto}</h2>
             <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
-            <PropertyCardH imgSrc={"http://localhost:1337" + imgSrc}
+            <PropertyCardH imgSrc={"https://natoladrad.beget.app" + imgSrc}
                            title={title}
                            price={price}
                            cityOrigin={cityOrigin}
