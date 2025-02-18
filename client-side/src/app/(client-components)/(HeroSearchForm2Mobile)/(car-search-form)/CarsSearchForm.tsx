@@ -53,18 +53,7 @@ const CarsSearchForm = () => {
                       <span className="text-neutral-400">Откуда?</span>
                       <span>{locationInputPickUp || "Город или место"}</span>
                   </button>
-                  <LocationInput
-                      headingText="Откуда?"
-                      defaultValue={locationInputPickUp}
-                      onChange={(value) => {
-                          setLocationInputPickUp(value);
-                          if (dropOffLocationType === "different") {
-                              setFieldNameShow("locationDropoff");
-                          } else {
-                              setFieldNameShow("dates");
-                          }
-                      }}
-                  />
+
           </div>
       </div>
     </div>
