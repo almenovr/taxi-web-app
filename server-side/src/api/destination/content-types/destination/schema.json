@@ -33,12 +33,6 @@
     "cityWhen": {
       "type": "string"
     },
-    "textTitle": {
-      "type": "string"
-    },
-    "textDescription": {
-      "type": "text"
-    },
     "cars": {
       "type": "component",
       "repeatable": true,
@@ -49,11 +43,16 @@
       "repeatable": true,
       "component": "shared.faqs"
     },
-    "description": {
-      "type": "text"
-    },
     "mapLink": {
       "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "textBlock": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.rich-text"
     }
   }
 }

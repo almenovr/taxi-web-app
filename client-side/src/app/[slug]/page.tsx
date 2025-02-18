@@ -3,6 +3,10 @@
 import React, {FC, useEffect, useState} from "react";
 import ButtonPrimary from "@/shared/ButtonPrimary";
 import PropertyCardH from "@/components/PropertyCardH";
+import { remark } from 'remark';
+import html from 'remark-html'
+import Showdown from 'showdown';
+import {boolean} from "property-information/lib/util/types";
 
 export interface ListingCarDetailPageProps {
     params: {
@@ -11,9 +15,18 @@ export interface ListingCarDetailPageProps {
 }
 
 async function getData(slug: string) {
-    const response = await fetch(`https://natoladrad.beget.app/api/destinations?filters[slug][$eq]=${slug}` + "&populate[cars][populate]=*&populate[faqs][populate]=*");
+    const response = await fetch(`http://localhost:1337/api/destinations?filters[slug][$eq]=${slug}` + "&populate[cars][populate]=*&populate[faqs][populate]=*&populate[textBlock][populate]=*");
     return await response.json();
 }
+
+async function getDescription(data: string) {
+    const processedContent = await remark()
+        .use(html)
+        .process(data);
+    return processedContent.toString();
+
+}
+
 
 type Props = {
     params: {
@@ -32,8 +45,14 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
       fetchData();
     }, []);
   const data = (response as { data: any })?.data[0];
+  console.log(data);
+  const converter = new Showdown.Converter();
+  const contentHTML = converter.makeHtml(data?.description);
   const cars = data?.cars;
-
+  const blocks = data?.textBlock;
+  const htmlBlock = blocks?.map((block: any) => {
+      return converter.makeHtml(block?.body);
+  })
 
 
   const renderSection1 = () => {
@@ -51,13 +70,15 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
           <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
 
           {/* CONTENT */}
-          <div className="text-neutral-6000 dark:text-neutral-300">
+          <div
+              id="single-entry-content"
+              className="prose dark:prose-invert prose-sm !max-w-screen-md sm:prose lg:prose-lg mx-auto dark:prose-dark"
+          >
+              <div dangerouslySetInnerHTML={{ __html: contentHTML }} />
 
-              <p>
-                  {data?.description}
-              </p>
           </div>
           <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
+
 
       </div>
     );
@@ -72,19 +93,23 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
       price: number,
       text: string,
       cityOrigin: string,
-      cityWhen: string
+      cityWhen: string,
+      isBusiness: boolean,
+      pricePerKm: number,
   ) => {
-    if (classAuto) {
+    if (classAuto && !isBusiness) {
       return (
         <div className="listingSection__wrap">
             <h2 className="text-2xl font-semibold">{classAuto}</h2>
             <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
-            <PropertyCardH imgSrc={"https://natoladrad.beget.app" + imgSrc}
+            <PropertyCardH imgSrc={"http://localhost:1337" + imgSrc}
                            title={title}
                            price={price}
                            cityOrigin={cityOrigin}
                            cityWhen={cityWhen}
                            classAuto={classAuto}
+                           isBusiness={isBusiness}
+                           pricePerKm={pricePerKm}
             />
             <div className="text-neutral-6000 dark:text-neutral-300">
 
@@ -94,6 +119,23 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
             </div>
         </div>
      );
+    } else if (classAuto && isBusiness) {
+        return (
+            <div className="listingSection__wrap">
+                <h2 className="text-2xl font-semibold">{classAuto}</h2>
+                <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
+                <PropertyCardH imgSrc={"http://localhost:1337" + imgSrc}
+                               title={title}
+                               price={price}
+                               cityOrigin={cityOrigin}
+                               cityWhen={cityWhen}
+                               classAuto={classAuto}
+                               isBusiness={isBusiness}
+                />
+                <div className="text-neutral-6000 dark:text-neutral-300">
+                </div>
+            </div>
+        );
     }
   };
 
@@ -146,6 +188,23 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
             <div className="listingSection__wrap">
                 {/* HEADING */}
                 <iframe src={link} width="100%" height="600"></iframe>
+                <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
+
+            </div>
+        );
+    };
+
+    const renderSection11 = (block: any) => {
+        return (
+            <div className="listingSection__wrap">
+                <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
+                <div
+                    id="single-entry-content"
+                    className="prose dark:prose-invert prose-sm !max-w-screen-md sm:prose lg:prose-lg mx-auto dark:prose-dark"
+                >
+                    <div dangerouslySetInnerHTML={{ __html: block }} />
+
+                </div>
                 <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
 
             </div>
@@ -225,7 +284,7 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
         <div className="w-full lg:w-3/5 xl:w-2/3 space-y-8 lg:pr-10 lg:space-y-10">
           {renderSection1()}
           <div className="block lg:hidden">{renderSidebarDetail()}</div>
-            {cars?.map((car: { className: string, carImg: { url: string }, listCars: string, price: number, description: string }) => (
+            {cars?.map((car: { className: string, carImg: { url: string }, listCars: string, price: number, description: string, isBusiness: boolean, pricePerKm: number}) => (
                 renderSection2(
                     car.className,
                     car.carImg.url,
@@ -234,12 +293,17 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
                     car.description,
                     data?.cityOrigin,
                     data?.cityWhen,
+                    car.isBusiness,
+                    car.pricePerKm,
                 )
             ))}
 
-          {renderSection8(data?.textTitle, data?.textDescription)}
+
+            {htmlBlock?.map((block: any) => (
+                renderSection11(block)
+            ))}
           {data?.faqs.length ? renderSection9(data?.faqs) : ""}
-            {data?.mapLink ? renderSection10(data?.mapLink): ""}
+          {data?.mapLink ? renderSection10(data?.mapLink): ""}
         </div>
 
         {/* SIDEBAR */}

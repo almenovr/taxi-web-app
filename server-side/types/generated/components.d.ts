@@ -3,14 +3,17 @@ import type { Schema, Struct } from '@strapi/strapi';
 export interface SharedCarBlock extends Struct.ComponentSchema {
   collectionName: 'components_shared_car_blocks';
   info: {
+    description: '';
     displayName: 'Car block';
   };
   attributes: {
     carImg: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     className: Schema.Attribute.String;
     description: Schema.Attribute.Text;
+    isBusiness: Schema.Attribute.Boolean;
     listCars: Schema.Attribute.String;
     price: Schema.Attribute.Integer;
+    pricePerKm: Schema.Attribute.Integer;
   };
 }
 

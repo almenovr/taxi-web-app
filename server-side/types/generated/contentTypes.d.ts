@@ -520,7 +520,7 @@ export interface ApiDestinationDestination extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
+    description: Schema.Attribute.RichText;
     displayImage: Schema.Attribute.Media<'images'>;
     faqs: Schema.Attribute.Component<'shared.faqs', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -532,8 +532,7 @@ export interface ApiDestinationDestination extends Struct.CollectionTypeSchema {
     mapLink: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'>;
-    textDescription: Schema.Attribute.Text;
-    textTitle: Schema.Attribute.String;
+    textBlock: Schema.Attribute.Component<'shared.rich-text', true>;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
