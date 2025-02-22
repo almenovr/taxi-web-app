@@ -26,14 +26,14 @@
     "price": {
       "type": "integer"
     },
-    "description": {
-      "type": "text"
-    },
     "isBusiness": {
       "type": "boolean"
     },
     "pricePerKm": {
       "type": "integer"
+    },
+    "description": {
+      "type": "blocks"
     }
   }
 }

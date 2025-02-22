@@ -9,7 +9,7 @@ export interface SharedCarBlock extends Struct.ComponentSchema {
   attributes: {
     carImg: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     className: Schema.Attribute.String;
-    description: Schema.Attribute.Text;
+    description: Schema.Attribute.Blocks;
     isBusiness: Schema.Attribute.Boolean;
     listCars: Schema.Attribute.String;
     price: Schema.Attribute.Integer;

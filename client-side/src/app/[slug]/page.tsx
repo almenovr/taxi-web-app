@@ -259,6 +259,13 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
       </div>
     );
   };
+    const renderVideoDetail = () => {
+        return (
+            <div className="listingSection__wrap lg:shadow-xl">
+                <iframe src="https://simfer-taxi.ru/wp-content/uploads/2019/07/vip-taksi-simferopol.mp4" width="100%" height="100%"></iframe>
+            </div>
+        );
+    };
 
   return (
 
@@ -280,7 +287,6 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
         {/* CONTENT */}
         <div className="w-full lg:w-3/5 xl:w-2/3 space-y-8 lg:pr-10 lg:space-y-10">
           {renderSection1()}
-          <div className="block lg:hidden">{renderSidebarDetail()}</div>
             {cars?.map((car: { className: string, carImg: { url: string }, listCars: string, price: number, description: string, isBusiness: boolean, pricePerKm: number}) => (
                 renderSection2(
                     car.className,
@@ -305,7 +311,7 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
 
         {/* SIDEBAR */}
         <div className="block flex-grow mt-14 lg:mt-0">
-          {renderSidebarDetail()}
+          {cars[0].isBusiness ? renderVideoDetail() : renderSidebarDetail()}
           <div className="hidden lg:block mt-10 sticky top-28">
             {renderSidebarPrice(cars ? cars[0]?.price : 0)}
           </div>
