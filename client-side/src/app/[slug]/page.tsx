@@ -111,7 +111,7 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
               id="single-entry-content"
               className="prose dark:prose-invert prose-sm !max-w-screen-md sm:prose lg:prose-lg mx-auto dark:prose-dark"
           >
-              <div dangerouslySetInnerHTML={{ __html: contentHTML }} />
+              <div dangerouslySetInnerHTML={{ __html: text }} />
 
           </div>
             </div>
