@@ -56,34 +56,6 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
 
 
   const renderSection1 = () => {
-      if(data?.cityWhen) {
-    return (
-      <div className="listingSection__wrap !space-y-6">
-        <center><h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">
-            {data?.title}
-        </h1></center>
-        <div className="flex items-center space-x-4">
-          <span>
-            <i className="las la-map-marker-alt"></i>
-            <span className="ml-1">{data?.cityWhen}</span>
-          </span>
-        </div>
-          <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
-
-          {/* CONTENT */}
-          <div
-              id="single-entry-content"
-              className="prose dark:prose-invert prose-sm !max-w-screen-md sm:prose lg:prose-lg mx-auto dark:prose-dark"
-          >
-              <div dangerouslySetInnerHTML={{ __html: contentHTML }} />
-
-          </div>
-          <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
-
-
-      </div>
-    );
-    } else {
           return (
       <div className="listingSection__wrap !space-y-6">
         <center><h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">
@@ -104,7 +76,6 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
 
       </div>
     );
-    }
   };
 
   //
