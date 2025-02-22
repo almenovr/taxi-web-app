@@ -107,9 +107,13 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
             />
             <div className="text-neutral-6000 dark:text-neutral-300">
 
-                <p>
-                    {text}
-                </p>
+                <div
+              id="single-entry-content"
+              className="prose dark:prose-invert prose-sm !max-w-screen-md sm:prose lg:prose-lg mx-auto dark:prose-dark"
+          >
+              <div dangerouslySetInnerHTML={{ __html: contentHTML }} />
+
+          </div>
             </div>
         </div>
      );
@@ -287,7 +291,7 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
                     car.carImg.url,
                     car.listCars,
                     car.price,
-                    car.description,
+                    converter.makeHtml(car.description);,
                     data?.cityOrigin,
                     data?.cityWhen,
                     car.isBusiness,
