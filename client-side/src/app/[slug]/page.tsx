@@ -291,7 +291,7 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
                     car.carImg.url,
                     car.listCars,
                     car.price,
-                    converter.makeHtml(car.description);,
+                    converter.makeHtml(car.description),
                     data?.cityOrigin,
                     data?.cityWhen,
                     car.isBusiness,
