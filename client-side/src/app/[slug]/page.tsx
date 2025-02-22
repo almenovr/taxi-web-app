@@ -311,7 +311,7 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
 
         {/* SIDEBAR */}
         <div className="block flex-grow mt-14 lg:mt-0">
-          {cars[0].isBusiness ? renderVideoDetail() : renderSidebarDetail()}
+          
           <div className="hidden lg:block mt-10 sticky top-28">
             {renderSidebarPrice(cars ? cars[0]?.price : 0)}
           </div>
