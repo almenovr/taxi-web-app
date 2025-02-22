@@ -33,7 +33,7 @@
       "type": "integer"
     },
     "description": {
-      "type": "blocks"
+      "type": "richtext"
     }
   }
 }
