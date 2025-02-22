@@ -64,7 +64,7 @@ const PropertyCardH: FC<PropertyCardHProps> = ({
                       {prices.map((businessPrice) => (
                           <div className="flex items-center space-x-2">
                               <p className="text-lg font-medium capitalize">
-                                  <span className="line-clamp-2">{businessPrice}</span>
+                                  <span className="line-clamp-2">{businessPrice} руб.</span>
                               </p>
                           </div>
                       ))}

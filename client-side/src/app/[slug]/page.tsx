@@ -6,13 +6,14 @@ import PropertyCardH from "@/components/PropertyCardH";
 import { remark } from 'remark';
 import html from 'remark-html'
 import Showdown from 'showdown';
-import {boolean} from "property-information/lib/util/types";
+import MetaData from "@/app/(server-components)/MetaData";
 
 export interface ListingCarDetailPageProps {
     params: {
         slug: string;
     }
 }
+
 
 async function getData(slug: string) {
     const response = await fetch(`https://natoladrad.beget.app/api/destinations?filters[slug][$eq]=${slug}` + "&populate[cars][populate]=*&populate[faqs][populate]=*&populate[textBlock][populate]=*");
@@ -45,7 +46,6 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
       fetchData();
     }, []);
   const data = (response as { data: any })?.data[0];
-  console.log(data);
   const converter = new Showdown.Converter();
   const contentHTML = converter.makeHtml(data?.description);
   const cars = data?.cars;
@@ -58,9 +58,9 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
   const renderSection1 = () => {
     return (
       <div className="listingSection__wrap !space-y-6">
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">
             {data?.title}
-        </h2>
+        </h1>
         <div className="flex items-center space-x-4">
           <span>
             <i className="las la-map-marker-alt"></i>
@@ -100,7 +100,7 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
     if (classAuto && !isBusiness) {
       return (
         <div className="listingSection__wrap">
-            <h2 className="text-2xl font-semibold">{classAuto}</h2>
+            <h3 className="text-2xl font-semibold">{classAuto}</h3>
             <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
             <PropertyCardH imgSrc={"https://natoladrad.beget.app" + imgSrc}
                            title={title}
@@ -217,11 +217,6 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
     return (
       <div className="listingSectionSidebar__wrap shadow-xl">
         {/* PRICE */}
-        <div className="flex justify-between">
-          <span className="text-3xl font-semibold">
-            {`от ${price} руб.`}
-          </span>
-        </div>
 
 
         {/* SUBMIT */}
@@ -270,6 +265,8 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
     <div className={` nc-ListingCarDetailPage `}>
       {/* SINGLE HEADER */}
       <header className="rounded-md sm:rounded-xl">
+          <title>{data?.siteTitle}</title>
+          <meta name="description" content={data?.siteDescription} />
         <div className="relative grid grid-cols-4 gap-1 sm:gap-2">
             <div className="absolute inset-0 bg-neutral-900 bg-opacity-20 opacity-0 hover:opacity-100 transition-opacity"></div>
 

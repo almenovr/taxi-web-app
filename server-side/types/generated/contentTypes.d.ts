@@ -506,7 +506,7 @@ export interface ApiDestinationDestination extends Struct.CollectionTypeSchema {
   collectionName: 'destinations';
   info: {
     description: '';
-    displayName: 'Destination';
+    displayName: '\u041D\u0430\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435';
     pluralName: 'destinations';
     singularName: 'destination';
   };
@@ -531,6 +531,8 @@ export interface ApiDestinationDestination extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     mapLink: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    siteDescription: Schema.Attribute.Text;
+    siteTitle: Schema.Attribute.String;
     slug: Schema.Attribute.UID<'title'>;
     textBlock: Schema.Attribute.Component<'shared.rich-text', true>;
     title: Schema.Attribute.String;
@@ -553,7 +555,15 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
   attributes: {
     blockText: Schema.Attribute.Text;
+    blockTextFive: Schema.Attribute.Text;
+    blockTextFour: Schema.Attribute.Text;
+    blockTextThree: Schema.Attribute.Text;
+    blockTextTwo: Schema.Attribute.Text;
     blockTitle: Schema.Attribute.String;
+    blockTitleFive: Schema.Attribute.String;
+    blockTitleFour: Schema.Attribute.String;
+    blockTitleThree: Schema.Attribute.String;
+    blockTitleTwo: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

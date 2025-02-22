@@ -4,7 +4,7 @@
   "info": {
     "singularName": "destination",
     "pluralName": "destinations",
-    "displayName": "Destination",
+    "displayName": "Направление",
     "description": ""
   },
   "options": {
@@ -53,6 +53,12 @@
       "type": "component",
       "repeatable": true,
       "component": "shared.rich-text"
+    },
+    "siteTitle": {
+      "type": "string"
+    },
+    "siteDescription": {
+      "type": "text"
     }
   }
 }

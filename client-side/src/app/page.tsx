@@ -58,15 +58,51 @@ async function PageHome() {
               {/* SECTION 1 */}
               <SectionSliderNewCategories categories={popularDestinations}/>
 
-              <SectionOurFeatures blockText={data.data.blockText} blockTitle={data.data.blockTitle}/>
+              <SectionOurFeatures blockText={data.data.blockText} blockTitle={data.data.blockTitle} heading="h2"/>
 
-              <SectionGridFeaturePlaces blockText={data.data.blockText} blockTitle={data.data.blockTitle}/>
+              <SectionGridFeaturePlaces blockText={data.data.blockTextTwo} blockTitle={data.data.blockTitleTwo} heading="h1"/>
 
               <SectionHowItWork/>
 
               <div className="relative py-16">
                   <BackgroundSection className="bg-orange-50 dark:bg-black dark:bg-opacity-20 "/>
-                  <SectionGridAuthorBox blockText={data.data.blockText} blockTitle={data.data.blockTitle}/>
+                  <SectionGridAuthorBox blockText={data.data.blockTextThree} blockTitle={data.data.blockTitleThree} heading="h3"/>
+              </div>
+              <SectionGridFeaturePlaces blockText={data.data.blockTextFour} blockTitle={data.data.blockTitleFour} heading="h2"/>
+              <div className="relative py-16">
+                  <BackgroundSection className="bg-orange-50 dark:bg-black dark:bg-opacity-20 "/>
+                  <SectionGridAuthorBox blockText={data.data.blockTextFive} blockTitle={data.data.blockTitleFive} heading="h2"/>
+              </div>
+              <div className="listingSection__wrap">
+                  {/* HEADING */}
+                  <h4 className="text-2xl font-semibold">Часто задаваемые вопросы (ЧАВО/FAQ):</h4>
+                  <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
+
+                  {/* CONTENT */}
+                  <div>
+                      <p className="text-lg font-semibold" style={{paddingTop: "1rem"}}>Как лучше заказать такси предварительно или по прилету?</p>
+                      <span className="block mt-3 text-neutral-500 dark:text-neutral-400">
+                        Мы рекомендуем заказывать предварительно, это гарантирует подачу авто вовремя и со всеми Вашими пожеланиями( Детское кресло, класс автомобиля и т.п.)
+                      </span>
+                      <p className="text-lg font-semibold" style={{paddingTop: "1rem"}}>Как происходит встреча в аэропорту?</p>
+                      <span className="block mt-3 text-neutral-500 dark:text-neutral-400">
+                        По прилету водитель с Вами свяжется по телефону, который вы указали при оформлении заказа, сообщит Вам всю информацию о себе, автомобиле и где он будет Вас встречать.
+                      </span>
+                      <p className="text-lg font-semibold" style={{paddingTop: "1rem"}}>Как изменяется тариф при задержке рейса?</p>
+                      <span className="block mt-3 text-neutral-500 dark:text-neutral-400">
+                        Ожидание при задержке рейса и получении багажа бесплатно!
+                      </span>
+                      <p className="text-lg font-semibold" style={{paddingTop: "1rem"}}>Такси довозит до адреса или до автовокзала?</p>
+                      <span className="block mt-3 text-neutral-500 dark:text-neutral-400">
+                        Наша цель - это высококачественный сервис. Водитель доставить Вас по указанному вами адресу.
+                      </span>
+                      <p className="text-lg font-semibold" style={{paddingTop: "1rem"}}>Может ли как-то измениться тариф?</p>
+                      <span className="block mt-3 text-neutral-500 dark:text-neutral-400">
+                        У нас цены фиксированные. Цена может измениться, только если вы измените маршрут или класс автомобиля.
+                      </span>
+                  </div>
+                  <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
+
               </div>
               <div className="relative py-16">
                   <iframe src="https://yandex.ru/map-widget/v1/?lang=ru_RU&amp;scroll=true&amp;source=constructor-api&amp;um=constructor%3Acb98237bacdbcc430408827bec889c5219a2110da3c013cd3afc65cf67a5f861" width="100%" height="400px"></iframe>

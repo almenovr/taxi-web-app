@@ -240,12 +240,6 @@ const NavigationItem: FC<NavigationItemWithRouterProps> = ({ menuItem }) => {
         href={item.href || ""}
       >
         {item.name}
-        {item.type && (
-          <ChevronDownIcon
-            className="ml-2 h-4 w-4 text-neutral-500"
-            aria-hidden="true"
-          />
-        )}
       </Link>
     );
   };
@@ -259,12 +253,6 @@ const NavigationItem: FC<NavigationItemWithRouterProps> = ({ menuItem }) => {
         href={item.href || "/"}
       >
         {item.name}
-        {item.type && (
-          <ChevronDownIcon
-            className="ml-1 -mr-1 h-4 w-4 text-neutral-400"
-            aria-hidden="true"
-          />
-        )}
       </Link>
     );
   };

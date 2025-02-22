@@ -51,6 +51,30 @@
     },
     "blockText": {
       "type": "text"
+    },
+    "blockTitleTwo": {
+      "type": "string"
+    },
+    "blockTextTwo": {
+      "type": "text"
+    },
+    "blockTitleThree": {
+      "type": "string"
+    },
+    "blockTextThree": {
+      "type": "text"
+    },
+    "blockTitleFour": {
+      "type": "string"
+    },
+    "blockTextFour": {
+      "type": "text"
+    },
+    "blockTitleFive": {
+      "type": "string"
+    },
+    "blockTextFive": {
+      "type": "text"
     }
   }
 }

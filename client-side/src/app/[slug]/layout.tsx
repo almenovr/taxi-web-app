@@ -4,7 +4,7 @@ import ListingImageGallery from "@/components/listing-image-gallery/ListingImage
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React, { ReactNode } from "react";
-import { Route } from "next";
+import { Route} from "next";
 import MobileFooterSticky from "@/app/(listing-detail)/(components)/MobileFooterSticky";
 
 const DetailtLayout = ({ children }: { children: ReactNode }) => {

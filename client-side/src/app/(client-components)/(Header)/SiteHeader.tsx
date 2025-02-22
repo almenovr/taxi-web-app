@@ -187,8 +187,7 @@ const SiteHeader = () => {
 
   return (
     <>
-      {renderControlSelections()}
-      {renderHeader()}
+      <Header className="shadow-sm dark:border-b dark:border-neutral-700" navType="MainNav1" />
       <div ref={anchorRef} className="h-1 absolute invisible"></div>
     </>
   );
