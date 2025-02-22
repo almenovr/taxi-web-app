@@ -4,7 +4,7 @@ export interface SectionGridAuthorBoxProps {
   className?: string;
   blockText: string;
   blockTitle: string;
-  heading: string;
+  heading?: string;
 }
 
 
