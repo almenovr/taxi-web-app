@@ -189,8 +189,8 @@ export const NAVIGATION_DEMO: NavItemType[] = [
   },
   {
     id: ncNanoId(),
-    href: "/simferopol-feodosia" as PathName,
-    name: "Феодосия",
+    href: "/sochi-airport" as PathName,
+    name: "Сочи(Адлер)",
     type: "none",
     isNew: false,
   },
