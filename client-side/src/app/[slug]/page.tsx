@@ -57,7 +57,7 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
 
   const renderSection1 = () => {
           return (
-      <div className="listingSection__wrap !space-y-6">
+      <center><div className="listingSection__wrap !space-y-6">
         <center><h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">
             {data?.title}
         </h1></center>
@@ -74,7 +74,7 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
           <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
 
 
-      </div>
+      </div></center>
     );
   };
 
