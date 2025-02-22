@@ -56,6 +56,7 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
 
 
   const renderSection1 = () => {
+      if(data?.cityWhen) {
     return (
       <div className="listingSection__wrap !space-y-6">
         <center><h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">
@@ -82,6 +83,28 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
 
       </div>
     );
+    } else {
+          return (
+      <div className="listingSection__wrap !space-y-6">
+        <center><h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">
+            {data?.title}
+        </h1></center>
+          <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
+
+          {/* CONTENT */}
+          <div
+              id="single-entry-content"
+              className="prose dark:prose-invert prose-sm !max-w-screen-md sm:prose lg:prose-lg mx-auto dark:prose-dark"
+          >
+              <div dangerouslySetInnerHTML={{ __html: contentHTML }} />
+
+          </div>
+          <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
+
+
+      </div>
+    );
+    }
   };
 
   //
@@ -122,7 +145,7 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
     } else if (classAuto && isBusiness) {
         return (
             <div className="listingSection__wrap">
-                <h2 className="text-2xl font-semibold">{classAuto}</h2>
+                <center><h3 className="text-2xl font-semibold">{classAuto}</h3></center>
                 <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
                 <PropertyCardH imgSrc={"https://natoladrad.beget.app" + imgSrc}
                                title={title}
