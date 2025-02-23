@@ -44,7 +44,7 @@
       "component": "shared.faqs"
     },
     "mapLink": {
-      "type": "string"
+      "type": "text"
     },
     "description": {
       "type": "richtext"

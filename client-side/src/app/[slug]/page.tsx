@@ -3,10 +3,7 @@
 import React, {FC, useEffect, useState} from "react";
 import ButtonPrimary from "@/shared/ButtonPrimary";
 import PropertyCardH from "@/components/PropertyCardH";
-import { remark } from 'remark';
-import html from 'remark-html'
 import Showdown from 'showdown';
-import MetaData from "@/app/(server-components)/MetaData";
 
 export interface ListingCarDetailPageProps {
     params: {
@@ -16,24 +13,10 @@ export interface ListingCarDetailPageProps {
 
 
 async function getData(slug: string) {
-    const response = await fetch(`https://natoladrad.beget.app/api/destinations?filters[slug][$eq]=${slug}` + "&populate[cars][populate]=*&populate[faqs][populate]=*&populate[textBlock][populate]=*");
+    const response = await fetch(`http://localhost:1337/api/destinations?filters[slug][$eq]=${slug}` + "&populate[cars][populate]=*&populate[faqs][populate]=*&populate[textBlock][populate]=*");
     return await response.json();
 }
 
-async function getDescription(data: string) {
-    const processedContent = await remark()
-        .use(html)
-        .process(data);
-    return processedContent.toString();
-
-}
-
-
-type Props = {
-    params: {
-        slug: string;
-    }
-}
 
 
 const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
@@ -94,7 +77,7 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
       return (
         <div className="listingSection__wrap">
             <center><h3 className="text-2xl font-semibold">{classAuto}</h3></center>
-            <PropertyCardH imgSrc={"https://natoladrad.beget.app" + imgSrc}
+            <PropertyCardH imgSrc={"http://localhost:1337" + imgSrc}
                            title={title}
                            price={price}
                            cityOrigin={cityOrigin}
@@ -120,7 +103,7 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
             <div className="listingSection__wrap">
                 <center><h3 className="text-2xl font-semibold">{classAuto}</h3></center>
                 <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
-                <PropertyCardH imgSrc={"https://natoladrad.beget.app" + imgSrc}
+                <PropertyCardH imgSrc={"http://localhost:1337" + imgSrc}
                                title={title}
                                price={price}
                                cityOrigin={cityOrigin}
@@ -135,25 +118,6 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({params}   ) => {
     }
   };
 
-
-  const renderSection8 = (title: string, text: string) => {
-    return (
-      <div className="listingSection__wrap">
-        {/* HEADING */}
-        <h2 className="text-2xl font-semibold">{title}</h2>
-        <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
-
-        {/* CONTENT */}
-        <div>
-          <span className="block mt-3 text-neutral-500 dark:text-neutral-400">
-            {text}
-          </span>
-        </div>
-        <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
-
-      </div>
-    );
-  };
 
     const renderSection9 = (faqs: any[]) => {
         return (

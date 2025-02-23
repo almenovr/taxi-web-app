@@ -5,7 +5,6 @@ import {MapPinIcon} from "@heroicons/react/24/outline";
 import ClearDataButton from "@/app/(client-components)/(HeroSearchForm)/ClearDataButton";
 import {Popover} from "@headlessui/react";
 import {useRouter} from "next/navigation";
-import Button from "@/shared/Button";
 
 export interface RentalCarSearchFormProps {}
 
@@ -20,7 +19,7 @@ const RentalCarSearchForm: FC<RentalCarSearchFormProps> = ({}) => {
 
   const handleClick = async (e: any) => {
       e.preventDefault();
-      const response = await fetch(`https://natoladrad.beget.app/api/destinations?filters[$and][0][cityOrigin][$eq]=${cityOrigin}&filters[$and][1][cityWhen][$eq]=${cityWhen}`);
+      const response = await fetch(`http://localhost:1337/api/destinations?filters[$and][0][cityOrigin][$eq]=${cityOrigin}&filters[$and][1][cityWhen][$eq]=${cityWhen}`);
       const data = await response.json();
       if(data.data.length > 0)
         router.push(data.data[0].slug);

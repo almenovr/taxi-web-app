@@ -529,7 +529,7 @@ export interface ApiDestinationDestination extends Struct.CollectionTypeSchema {
       'api::destination.destination'
     > &
       Schema.Attribute.Private;
-    mapLink: Schema.Attribute.String;
+    mapLink: Schema.Attribute.Text;
     publishedAt: Schema.Attribute.DateTime;
     siteDescription: Schema.Attribute.Text;
     siteTitle: Schema.Attribute.String;

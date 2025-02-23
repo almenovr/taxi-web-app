@@ -12,13 +12,13 @@ import {Metadata} from "next";
 
 
 async function getHomePageDataWithRelations() {
-  const response = await fetch('https://natoladrad.beget.app/api/global?populate[destinations][populate]=*', {
+  const response = await fetch('http://localhost:1337/api/global?populate[destinations][populate]=*', {
     headers: { 'Cache-Control': 'no-cache' } });
   return response.json();
 }
 
 async function getHomePageData() {
-  const response = await fetch('https://natoladrad.beget.app/api/global', {
+  const response = await fetch('http://localhost:1337/api/global', {
     headers: { 'Cache-Control': 'no-cache' } });
   return response.json();
 }
@@ -42,7 +42,7 @@ async function PageHome() {
           name: destination.cityWhen,
           taxonomy: "category",
           count: 1,
-          thumbnail: 'https://natoladrad.beget.app' + destination.displayImage?.url,
+          thumbnail: 'http://localhost:1337' + destination.displayImage?.url,
       });
   }
   return (

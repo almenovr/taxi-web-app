@@ -1,4 +1,6 @@
-import React, { FC } from "react";
+"use client";
+
+import React, {FC, useState} from "react";
 import rightImgPng from "@/images/our-features.png";
 import Image, { StaticImageData } from "next/image";
 
@@ -19,6 +21,8 @@ const SectionOurFeatures: FC<SectionOurFeaturesProps> = ({
   blockText = "",
   heading = "h1",
 }) => {
+  const [isReadMore, setIsReadMore] = useState(true);
+  const toggleReadMore = () => {setIsReadMore(!isReadMore)};
   return (
     <div
       className={`nc-SectionOurFeatures relative flex flex-col items-center ${
@@ -39,7 +43,12 @@ const SectionOurFeatures: FC<SectionOurFeaturesProps> = ({
         {heading === "h3" ? <h3 className="font-semibold text-4xl mt-5">{blockTitle}</h3> : null}
         {heading === "h4" ? <h4 className="font-semibold text-4xl mt-5">{blockTitle}</h4> : null}
         <span className="block mt-5 text-neutral-500 dark:text-neutral-400">
-              {blockText}
+          {isReadMore ? blockText.slice(0, 250): blockText }
+          {blockText.length > 250 && (
+              <span onClick={toggleReadMore}>
+              {isReadMore ? <b>...читать далее</b> : <b>...показать меньше</b>}
+                </span>
+          )}
         </span>
       </div>
     </div>

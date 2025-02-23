@@ -11,8 +11,6 @@ import { useSearchParams } from "next/navigation";
 import Select from "@/shared/Select";
 
 import axios from 'axios';
-import {number} from "prop-types";
-import * as timers from "node:timers";
 
 export interface CheckOutPagePageMainProps {
   className?: string;
@@ -67,7 +65,7 @@ const CheckOutPagePageMain: FC<CheckOutPagePageMainProps> = ({
   const [count, setCount] = useState("");
   const [time, setTime] = useState("");
   const [number, setNumber] = useState("");
-  let [classAutoV2, setClassAutoV2] = useState("Эконом");
+  let [classAutoV2, setClassAutoV2] = useState("Стандарт");
   const [wishes, setWishes] = useState("");
 
   if (classAuto) {
@@ -172,13 +170,13 @@ const CheckOutPagePageMain: FC<CheckOutPagePageMainProps> = ({
                   </div>
                   <div className="flex space-x-5  ">
                     <div className="flex-1 space-y-1">
-                      <Label>Номер рейса</Label>
+                      <Label>Номер рейса </Label>
                       <Input value={number} onChange={(e) => {
                         setNumber(e.currentTarget.value);
                       }} />
                     </div>
-                    <div className="space-y-1">
-                      <Label>Количество пассажиров</Label>
+                    <div className="flex-1 space-y-1">
+                      <Label>Количество пассажиров </Label>
                       <Input value={count} onChange={(e) => {
                         setCount(e.currentTarget.value);
                       }} />
@@ -191,7 +189,7 @@ const CheckOutPagePageMain: FC<CheckOutPagePageMainProps> = ({
                         setNumber(e.currentTarget.value);
                       }} />
                     </div>
-                    <div className="space-y-1">
+                    <div className="flex-1 space-y-1">
                       <Label>Куда?</Label>
                       <Input value={count} onChange={(e) => {
                         setCount(e.currentTarget.value);
