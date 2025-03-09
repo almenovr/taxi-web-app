@@ -20,10 +20,12 @@ interface NavItem {
 
 const NAV: NavItem[] = [
   {
-    name: "Меню",
+    name: "",
     icon: MenuBar,
   },
 ];
+
+
 
 const FooterNav = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -85,7 +87,8 @@ const FooterNav = () => {
           isActive ? "text-neutral-900 dark:text-neutral-100" : ""
         }`}
       >
-        <item.icon className={`w-6 h-6 ${isActive ? "text-red-600" : ""}`} />
+        <item.icon className={`w-14 h-15 ${isActive ? "text-red-600" : ""}`} />
+
         <span
           className={`text-[11px] leading-none mt-1 ${
             isActive ? "text-red-600" : ""
@@ -101,8 +104,8 @@ const FooterNav = () => {
           isActive ? "text-neutral-900 dark:text-neutral-100" : ""
         }`}
       >
-        <item.icon iconClassName="w-6 h-6" className={``} />
-        <span className="text-[11px] leading-none mt-1">{item.name}</span>
+        <item.icon iconClassName="w-14 h-15 " className={``}  />
+        <span className="text-[11px] leading-none mt-1" style={{fontSize: "1.5rem"}}>{item.name}</span>
       </div>
     );
   };
@@ -112,12 +115,47 @@ const FooterNav = () => {
       ref={containerRef}
       className="FooterNav block md:!hidden p-2 bg-white dark:bg-neutral-800 fixed top-auto bottom-0 inset-x-0 z-30 border-t border-neutral-300 dark:border-neutral-700 
       transition-transform duration-300 ease-in-out"
+      style={{paddingBottom: "1rem", paddingTop: "1rem"}}
     >
+      <style jsx>{`
+    .pulse {
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 0 0 rgba(80,255,32, 1);
+      animation: pulse 1s infinite;
+    }
+    @keyframes pulse {
+      0% {
+        -moz-box-shadow: 0 0 0 0 rgba(80,255,32, 1);
+        box-shadow: 0 0 0 0 rgba(80,255,32, 1);
+        transform: rotate(45deg);
+      }
+      70% {
+        -moz-box-shadow: 0 0 0 10px rgba(80,255,32, 0);
+        box-shadow: 0 0 0 10px rgba(80,255,32, 0);
+        transform: rotate(0);
+      }
+      100% {
+        -moz-box-shadow: 0 0 0 0 rgba(80,255,32, 0);
+        box-shadow: 0 0 0 0 rgba(80,255,32, 0);
+        transform: rotate(45deg);
+      }
+    }
+      `}</style>
       <div className="w-full max-w-lg flex justify-around mx-auto text-sm text-center ">
         {/* MENU */}
         {NAV.map(renderItem)}
+        <div className="unit__body" style={{marginTop: "1rem", fontSize: "1.5rem"}}><a className="text-middle" href="tel:+79780109992">+7
+          (978) 010-99-92</a><a href="tel:+79780109992"
+                                style={{width: "60px", display: "inline-block", textAlign: "center"}}><span
+            className="pulse"><img src="https://simfer-taxi.ru/wp-content/themes/taxim/images/icon_phone.png"
+                                   style={{width: "100%", display: "inline-block"}}/></span></a></div>
       </div>
     </div>
+
   );
 };
 

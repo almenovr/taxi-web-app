@@ -53,6 +53,13 @@ const CarsSearchForm = () => {
                       <span className="text-neutral-400">Откуда?</span>
                       <span>{locationInputPickUp || "Город или место"}</span>
                   </button>
+                  <LocationInput
+                      headingText="Куда?"
+                      defaultValue={locationInputPickUp}
+                      onChange={(value) => {
+                          setLocationInputPickUp(value);
+                      }}
+                  />
 
           </div>
       </div>

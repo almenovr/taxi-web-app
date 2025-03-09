@@ -1,12 +1,10 @@
 import React, { FC } from "react";
-import Logo from "@/shared/Logo";
 import Navigation from "@/shared/Navigation/Navigation";
-import SearchDropdown from "./SearchDropdown";
 import ButtonPrimary from "@/shared/ButtonPrimary";
 import MenuBar from "@/shared/MenuBar";
 import SwitchDarkMode from "@/shared/SwitchDarkMode";
 import HeroSearchForm2MobileFactory from "../(HeroSearchForm2Mobile)/HeroSearchForm2MobileFactory";
-import LangDropdown from "./LangDropdown";
+import FooterNav from "@/components/FooterNav";
 
 export interface MainNav1Props {
   className?: string;
@@ -22,7 +20,9 @@ const MainNav1: FC<MainNav1Props> = ({ className = "" }) => {
         </div>
 
         <div className="flex lg:hidden flex-[3] max-w-lg !mx-auto md:px-3 ">
+
           <div className="self-center flex-1">
+            <FooterNav />
             <HeroSearchForm2MobileFactory />
           </div>
         </div>
