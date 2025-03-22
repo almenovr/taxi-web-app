@@ -23,7 +23,6 @@ const MainNav1: FC<MainNav1Props> = ({ className = "" }) => {
 
           <div className="self-center flex-1">
             <FooterNav />
-            <HeroSearchForm2MobileFactory />
           </div>
         </div>
 

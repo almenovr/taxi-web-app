@@ -48,7 +48,7 @@ const PayPage: FC<PayPageProps> = () => {
               </span>
             </div>
             <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
-              <span className="flex-1">Количество пассажиров</span>
+              <span className="flex-1">Кол-во пассажиров</span>
               <span className="flex-1 font-medium text-neutral-900 dark:text-neutral-100">
                 {countPassengers}
               </span>
