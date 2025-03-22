@@ -148,7 +148,7 @@ const FooterNav = () => {
       <div className="w-full max-w-lg flex justify-around mx-auto text-sm text-center ">
         {/* MENU */}
         {NAV.map(renderItem)}
-        <div className="unit__body" style={{marginTop: "1rem", fontSize: "1.5rem"}}><a className="text-middle" href="tel:+79780109992">+7
+        <div className="unit__body" style={{marginTop: "1rem", fontSize: "1.2rem"}}><a className="text-middle" href="tel:+79780109992">+7
           (978) 010-99-92</a><a href="tel:+79780109992"
                                 style={{width: "60px", display: "inline-block", textAlign: "center"}}><span
             className="pulse"><img src="https://simfer-taxi.ru/wp-content/themes/taxim/images/icon_phone.png"
