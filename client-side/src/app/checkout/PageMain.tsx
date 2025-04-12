@@ -1,3 +1,4 @@
+
 "use client"
 
 import { Tab } from "@headlessui/react";
@@ -176,7 +177,7 @@ const CheckOutPagePageMain: FC<CheckOutPagePageMainProps> = ({
                       }} />
                     </div>
                     <div className="flex-1 space-y-1">
-                      <Label>Количество пассажиров </Label>
+                      <Label>Кол-во пассажиров </Label>
                       <Input value={count} onChange={(e) => {
                         setCount(e.currentTarget.value);
                       }} />
