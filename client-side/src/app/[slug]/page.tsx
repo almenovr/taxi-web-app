@@ -35,7 +35,7 @@ interface ListingCarDetailPageProps {
 
 async function getData(slug: string): Promise<{ data: Destination[] }> {
     const response = await fetch(
-        `http://localhost:1337/api/destinations?filters[slug][$eq]=${slug}&populate[cars][populate]=*&populate[faqs][populate]=*&populate[textBlock][populate]=*`
+        `https://natoladrad.beget.app/api/destinations?filters[slug][$eq]=${slug}&populate[cars][populate]=*&populate[faqs][populate]=*&populate[textBlock][populate]=*`
     );
     if (!response.ok) throw new Error("Ошибка загрузки данных");
     return await response.json();
