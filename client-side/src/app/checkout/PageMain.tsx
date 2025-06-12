@@ -36,8 +36,8 @@ export async function sendMessage(
   const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
   const text = "Имя: " + name + '\n'
       + "Телефон: " + phone + '\n'
-      + "Откуда: " + cityOrigin + '\n'
-      + "Куда: " + cityWhen + '\n'
+      + "Откуда: " + cityOriginForm + '\n'
+      + "Куда: " + cityWhenForm + '\n'
       + "Класс авто: " + classAuto + '\n'
       + "Количество пассажиров: " + count + '\n'
       + "Дата: " + date + '\n'
