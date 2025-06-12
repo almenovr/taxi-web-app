@@ -61,6 +61,8 @@ const CheckOutPagePageMain: FC<CheckOutPagePageMainProps> = ({
   const imgSrc = searchParams.get('imgSrc');
 
   const [name, setName] = useState("");
+  const [cityOrigin, setCityOrigin] = useState("");
+  const [cityWhen, setCityWhen] = useState("");
   const [phone, setPhone] = useState("");
   const [date, setDate] = useState("");
   const [count, setCount] = useState("");
@@ -187,13 +189,13 @@ const CheckOutPagePageMain: FC<CheckOutPagePageMainProps> = ({
                     <div className="flex-1 space-y-1">
                       <Label>Откуда?</Label>
                       <Input value={cityOrigin} onChange={(e) => {
-                        setNumber(e.currentTarget.value);
+                        setCityOrigin(e.currentTarget.value);
                       }} />
                     </div>
                     <div className="flex-1 space-y-1">
                       <Label>Куда?</Label>
                       <Input value={cityWhen} onChange={(e) => {
-                        setCount(e.currentTarget.value);
+                        setCityWhen(e.currentTarget.value);
                       }} />
                     </div>
                   </div>
