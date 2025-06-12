@@ -27,7 +27,7 @@ export async function sendMessage(
     time: string | null,
     number: string | null,
     wishes: string | null,
-    date: Date | null) {
+    date: string | null) {
   if (!name) {
     alert("Вы не заполнили поле имя");
   }
@@ -239,7 +239,7 @@ const CheckOutPagePageMain: FC<CheckOutPagePageMainProps> = ({
                   time,
                   number,
                   wishes,
-                  date.toLocaleDateString()}  href={`/pay-done?name=${name}&cityOrigin=${cityOriginForm}&cityWhen=${cityWhenForm}&classAuto=${classAutoV2}&date={date.toLocaleDateString()}`}>Заказать</ButtonPrimary>
+                  date}  href={`/pay-done?name=${name}&cityOrigin=${cityOriginForm}&cityWhen=${cityWhenForm}&classAuto=${classAutoV2}&date={date}`}>Заказать</ButtonPrimary>
             </div>
           </div>
         </div>
