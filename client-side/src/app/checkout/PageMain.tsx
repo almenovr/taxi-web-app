@@ -36,8 +36,8 @@ export async function sendMessage(
   const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
   const text = "Имя: " + name + '\n'
       + "Телефон: " + phone + '\n'
-      + "Откуда: " + cityOriginForm + '\n'
-      + "Куда: " + cityWhenForm + '\n'
+      + "Откуда: " + cityOrigin + '\n'
+      + "Куда: " + cityWhen + '\n'
       + "Класс авто: " + classAuto + '\n'
       + "Количество пассажиров: " + count + '\n'
       + "Дата: " + date + '\n'
@@ -232,14 +232,14 @@ const CheckOutPagePageMain: FC<CheckOutPagePageMainProps> = ({
               <ButtonPrimary onClick={() => sendMessage(
                   name,
                   phone,
-                  cityOrigin,
-                  cityWhen,
+                  cityOriginForm,
+                  cityWhenForm,
                   classAutoV2,
                   count,
                   time,
                   number,
                   wishes,
-                  date)}  href={`/pay-done?name=${name}`}>Заказать</ButtonPrimary>
+                  date)}  href={`/pay-done?name=${name}&cityOrigin=${cityOriginForm}&cityWhen=${cityWhenForm}`}>Заказать</ButtonPrimary>
             </div>
           </div>
         </div>
