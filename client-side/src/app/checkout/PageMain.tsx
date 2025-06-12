@@ -239,7 +239,7 @@ const CheckOutPagePageMain: FC<CheckOutPagePageMainProps> = ({
                   time,
                   number,
                   wishes,
-                  date)}  href={`/pay-done?name=${name}&date=${date}&countPassengers=${count}`}>Заказать</ButtonPrimary>
+                  date)}  href={`/pay-done?name=${name}`}>Заказать</ButtonPrimary>
             </div>
           </div>
         </div>
