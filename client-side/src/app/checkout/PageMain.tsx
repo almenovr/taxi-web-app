@@ -232,8 +232,8 @@ const CheckOutPagePageMain: FC<CheckOutPagePageMainProps> = ({
               <ButtonPrimary onClick={() => sendMessage(
                   name,
                   phone,
-                  cityOriginForm,
-                  cityWhenForm,
+                  cityOrigin,
+                  cityWhen,
                   classAutoV2,
                   count,
                   time,
