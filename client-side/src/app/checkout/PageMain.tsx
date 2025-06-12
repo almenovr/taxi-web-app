@@ -186,13 +186,13 @@ const CheckOutPagePageMain: FC<CheckOutPagePageMainProps> = ({
                   <div className="flex space-x-5  ">
                     <div className="flex-1 space-y-1">
                       <Label>Откуда?</Label>
-                      <Input value={number} onChange={(e) => {
+                      <Input value={cityOrigin} onChange={(e) => {
                         setNumber(e.currentTarget.value);
                       }} />
                     </div>
                     <div className="flex-1 space-y-1">
                       <Label>Куда?</Label>
-                      <Input value={count} onChange={(e) => {
+                      <Input value={cityWhen} onChange={(e) => {
                         setCount(e.currentTarget.value);
                       }} />
                     </div>
