@@ -27,7 +27,7 @@ export async function sendMessage(
     time: string | null,
     number: string | null,
     wishes: string | null,
-    date: string | null) {
+    date: Date | null) {
   if (!name) {
     alert("Вы не заполнили поле имя");
   }
