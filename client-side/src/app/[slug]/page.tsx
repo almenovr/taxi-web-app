@@ -6,6 +6,14 @@ import ButtonPrimary from "@/shared/ButtonPrimary";
 import PropertyCardH from "@/components/PropertyCardH";
 import Showdown from "showdown";
 
+export async function generateMetadata(): Promise<Metadata> {
+  const data = await getData(params.slug);
+  return {
+    title: data.siteTitle,
+    description: data.siteDescription,
+  }
+}
+
 interface Car {
     className: string;
     carImg: { url: string };
