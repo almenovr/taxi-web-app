@@ -171,8 +171,8 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({ params }) => {
     return (
         <div className="nc-ListingCarDetailPage">
             <Head>
-                <title>1</title>
-                <meta name="description" content=2 />
+                <title>"Проверка"</title>
+                <meta name="description" content="Проверка" />
             </Head>
             <main className="relative z-10 mt-11 flex flex-col lg:flex-row">
                 <div className="w-full lg:w-3/5 xl:w-2/3 space-y-8 lg:pr-10 lg:space-y-10">
