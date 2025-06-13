@@ -7,12 +7,6 @@ import PropertyCardH from "@/components/PropertyCardH";
 import Showdown from "showdown";
 import { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'test',
-  description:
-    'test',
-};
-
 
 interface Car {
     className: string;
