@@ -51,7 +51,7 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({ params }) => {
             try {
                 setLoading(true);
                 const data = await getData(params.slug);
-                console.log(data);
+                console.log("test");
                 setData(data);
             } catch (err) {
                 setError("Ошибка при загрузке данных");
@@ -169,11 +169,11 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({ params }) => {
     };
 
     return (
-        <div className="nc-ListingCarDetailPage">
-            <Head>
+        <Head>
                 <title>"Проверка"</title>
                 <meta name="description" content="Проверка" />
             </Head>
+        <div className="nc-ListingCarDetailPage">
             <main className="relative z-10 mt-11 flex flex-col lg:flex-row">
                 <div className="w-full lg:w-3/5 xl:w-2/3 space-y-8 lg:pr-10 lg:space-y-10">
                     {renderSection1()}
