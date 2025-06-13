@@ -52,8 +52,8 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({ params }) => {
                 setLoading(true);
                 const data = await getData(params.slug);
                 console.log(data);
-                console.log(data.siteTitle);
-                console.log(data.siteDescription);
+                console.log(data[0].siteTitle);
+                console.log(data[0].siteDescription);
                 setData(data);
             } catch (err) {
                 setError("Ошибка при загрузке данных");
