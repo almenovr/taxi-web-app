@@ -70,7 +70,7 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "natoladrad.beget.app",
-        port: "1337",
+        port: "",
         pathname: "/**",
       },
     ],
