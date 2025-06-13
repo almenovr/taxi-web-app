@@ -5,9 +5,6 @@ import Head from "next/head";
 import ButtonPrimary from "@/shared/ButtonPrimary";
 import PropertyCardH from "@/components/PropertyCardH";
 import Showdown from "showdown";
-
-
-import React from 'react';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
