@@ -6,14 +6,6 @@ import ButtonPrimary from "@/shared/ButtonPrimary";
 import PropertyCardH from "@/components/PropertyCardH";
 import Showdown from "showdown";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const data = await getData(params.slug);
-  return {
-    title: data.siteTitle,
-    description: data.siteDescription,
-  }
-}
-
 interface Car {
     className: string;
     carImg: { url: string };
@@ -60,6 +52,8 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({ params }) => {
                 setLoading(true);
                 const data = await getData(params.slug);
                 console.log(data);
+                console.log(data.siteTitle);
+                console.log(data.siteDescription);
                 setData(data);
             } catch (err) {
                 setError("Ошибка при загрузке данных");
