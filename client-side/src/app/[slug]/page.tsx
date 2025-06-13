@@ -6,6 +6,17 @@ import ButtonPrimary from "@/shared/ButtonPrimary";
 import PropertyCardH from "@/components/PropertyCardH";
 import Showdown from "showdown";
 
+
+import React from 'react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'test',
+  description:
+    'test',
+};
+
+
 interface Car {
     className: string;
     carImg: { url: string };
@@ -40,6 +51,7 @@ async function getData(slug: string): Promise<{ data: Destination[] }> {
     if (!response.ok) throw new Error("Ошибка загрузки данных");
     return await response.json();
 }
+
 
 const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({ params }) => {
     const [response, setData] = useState<{ data: Destination[] } | null>(null);
