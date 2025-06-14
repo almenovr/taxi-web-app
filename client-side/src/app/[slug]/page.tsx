@@ -104,16 +104,9 @@ const ListingCarDetailPage: ({params}: { params: any }) => Promise<React.JSX.Ele
                     classAuto={className}
                     isBusiness={isBusiness}
                     pricePerKm={pricePerKm}
+                    text={text}
                 />
-                {!isBusiness && (
-                    <div className="text-neutral-6000 dark:text-neutral-300">
-                        <div
-                            id="single-entry-content"
-                            className="prose dark:prose-invert prose-sm max-w-screen-md sm:prose lg:prose-lg mx-auto dark:prose-dark"
-                            dangerouslySetInnerHTML={{ __html: text }}
-                        />
-                    </div>
-                )}
+                
             </div>
         );
     };
