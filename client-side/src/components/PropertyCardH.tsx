@@ -11,6 +11,7 @@ export interface PropertyCardHProps {
   classAuto?: string
   isBusiness: boolean;
   pricePerKm?: number;
+  text?: string;
 }
 
 const PropertyCardH: FC<PropertyCardHProps> = ({
@@ -23,6 +24,7 @@ const PropertyCardH: FC<PropertyCardHProps> = ({
    classAuto = "",
    isBusiness = false,
    pricePerKm = 0,
+   text = "",
 }) => {
 
   const renderSliderGallery = () => {
@@ -53,6 +55,11 @@ const PropertyCardH: FC<PropertyCardHProps> = ({
                     <Link href={`/checkout?cityOrigin=${cityOrigin}&cityWhen=${cityWhen}&price=${price}&classAuto=${classAuto}&imgSrc=${imgSrc}`}>от {`${pricePerKm} р/км`}</Link>
                 </span> : ""}
                 </div>
+                <div
+                            id="single-entry-content"
+                            className="prose dark:prose-invert prose-sm max-w-screen-md sm:prose lg:prose-lg mx-auto dark:prose-dark"
+                            dangerouslySetInnerHTML={{ __html: text }}
+                        />
               </div>
             </div>
         );
@@ -61,14 +68,21 @@ const PropertyCardH: FC<PropertyCardHProps> = ({
           return (
               <div className="flex-grow p-3 sm:pr-6 flex flex-col items-start">
                   <div className="space-y-4 w-full">
-                      {prices.map((businessPrice) => (
-                          <div className="flex items-center space-x-2">
+                    {prices.map((businessPrice) => {
+                        if(!businessPrice.includes("Симферополь")) {
+                            return (<div className="flex items-center space-x-2">
+                              <p className="text-lg font-medium capitalize">
+                                  <span className="line-clamp-2">{businessPrice}</span>
+                              </p>
+                          </div>);
+                        } else {
+                            return (<div className="flex items-center space-x-2">
                               <p className="text-lg font-medium capitalize">
                                   <span className="line-clamp-2">{businessPrice} руб.</span>
                               </p>
-                          </div>
-                      ))}
-
+                          </div>);
+                        }
+                    })}
                   </div>
               </div>
           );
