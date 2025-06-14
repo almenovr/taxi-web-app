@@ -151,7 +151,7 @@ const FooterNav = () => {
         <div className="unit__body" style={{marginTop: "1rem", fontSize: "1.2rem"}}><a className="text-middle" href="tel:+79780109992">+7
           (978) 010-99-92</a><a href="tel:+79780109992"
                                 style={{width: "60px", display: "inline-block", textAlign: "center"}}><span
-            className="pulse"><img src="https://simfer-taxi.ru/wp-content/themes/taxim/images/icon_phone.png"
+            className="pulse"><img src="https://natoladrad.beget.app/uploads/icon_phone_57b6023cb3.png"
                                    style={{width: "100%", display: "inline-block"}}/></span></a></div>
       </div>
     </div>
