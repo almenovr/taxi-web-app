@@ -15,13 +15,21 @@ const MobileFooterSticky = () => {
       <div className="container flex items-center justify-between">
         <div className="">
         </div>
+          <ButtonPrimary
+              sizeClass="px-5 sm:px-7 py-3 !rounded-2xl"
+              className={"bottom-button-call"}
+              href={"tel:+79780109992"}
+          >
+              Позвонить
+          </ButtonPrimary>
+
         <ModalReserveMobile
           renderChildren={({ openModal }) => (
             <ButtonPrimary
               sizeClass="px-5 sm:px-7 py-3 !rounded-2xl"
               onClick={openModal}
             >
-              Заказать
+              Заказать онлайн
             </ButtonPrimary>
           )}
         />
