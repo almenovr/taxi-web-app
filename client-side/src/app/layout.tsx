@@ -1,3 +1,5 @@
+"use client";
+
 import { Poppins } from "next/font/google";
 import SiteHeader from "./(client-components)/(Header)/SiteHeader";
 import ClientCommons from "./ClientCommons";
