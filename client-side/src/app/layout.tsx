@@ -6,6 +6,8 @@ import "@/fonts/line-awesome-1.3.0/css/line-awesome.css";
 import "@/styles/index.scss";
 import "rc-slider/assets/index.css";
 import Footer from "@/components/Footer";
+import MobileFooterSticky from "@/app/(listing-detail)/(components)/MobileFooterSticky";
+import React from "react";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -25,6 +27,7 @@ export default function RootLayout({
       <body className="bg-white text-base dark:bg-neutral-900 text-neutral-900 dark:text-neutral-200">
         <ClientCommons />
         <SiteHeader />
+        <MobileFooterSticky />
         {children}
         <Footer />
       </body>
